@@ -50,6 +50,7 @@ const styles = {
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
     boxShadow: '0 4px 14px #b13656cc',
+    
   },
   buttonHover: {
     backgroundColor: '#8b3a5b', // rose plus foncé au hover
@@ -81,11 +82,12 @@ const styles = {
 
 const RendezVous = () => {
   const [form, setForm] = useState({
-    nom: '',
-    prenom: '',
-    date: '',
-    heure: '',
-    prestation: '',
+    nom: "",
+    prenom: "",
+    
+    date: "",
+    heure: "",
+    prestation: "",
   });
 
   const [focusIndex, setFocusIndex] = useState(null);
@@ -98,6 +100,7 @@ const RendezVous = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Données à envoyer:", form); // <-- Ajoutez cette ligne
     try {
       await axios.post('http://localhost:5000/api/rendezvous', form);
       alert('Rendez-vous pris avec succès !');
@@ -109,6 +112,7 @@ const RendezVous = () => {
   const inputs = [
     { name: 'nom', placeholder: 'Nom', type: 'text' },
     { name: 'prenom', placeholder: 'Prénom', type: 'text' },
+    
     { name: 'date', placeholder: '', type: 'date' },
     { name: 'heure', placeholder: '', type: 'time' },
     { name: 'prestation', placeholder: 'Prestation', type: 'text' },

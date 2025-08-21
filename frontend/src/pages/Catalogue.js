@@ -1,6 +1,22 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import image1 from '../assets/a.jpg'; // Chemin corrigé
+import image1 from '../assets/robe.png'; // Chemin corrigé
+import image2 from '../assets/robe2.png';
+import image3 from '../assets/a.jpeg';
+import image4 from '../assets/b.jpeg';
+import image5 from '../assets/c.jpeg';
+import image6 from '../assets/d.jpeg';
+import image7 from '../assets/e.jpeg';
+import image8 from '../assets/f.jpeg';
+import image9 from '../assets/g.jpeg';
+import image10 from '../assets/h.jpeg';
+import image11 from '../assets/i.jpeg';
+import image12 from '../assets/j.jpeg';
+import image13 from '../assets/k.jpeg';
+import image14 from '../assets/l.jpeg';
+import image15 from '../assets/m.jpeg';
+import image16 from '../assets/n.jpeg';
+
 
 const styles = {
   container: {
@@ -47,13 +63,13 @@ const styles = {
   // Nouveaux styles pour les images
   gallery: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', // Ajusté pour plus de flexibilité
     gap: '20px',
     margin: '30px 0'
   },
   image: {
     width: '100%',
-    height: '200px',
+    height: 'auto',
     objectFit: 'cover',
     borderRadius: '8px',
     boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
@@ -67,14 +83,28 @@ const Catalogue = () => {
   // Tableau d'images - utilisez vos propres imports
   const images = [
     { src: image1, alt: "Modèle 1" },
-    // Ajoutez d'autres images ici
-    // { src: image2, alt: "Modèle 2" },
-    // { src: image3, alt: "Modèle 3" },
+   { src: image2, alt: "Modèle 2" },
+   { src: image3, alt: "Modèle 3" },
+     { src: image4, alt: "Modèle 4" },
+     { src: image5, alt: "Modèle 5" },
+     { src: image6, alt: "Modèle 6" },
+     { src: image7, alt: "Modèle 7" },
+     { src: image8, alt: "Modèle 8" },
+     { src: image9, alt: "Modèle 9" },
+     { src: image10, alt: "Modèle 10" },
+     { src: image11, alt: "Modèle 11" },
+     { src: image12, alt: "Modèle 12" },
+     { src: image13, alt: "Modèle 13" },
+     { src: image14, alt: "Modèle 14" },
+     { src: image15, alt: "Modèle 15" },
+     { src: image16, alt: "Modèle 16" },
   ];
+     
+
 
   return (
     <div style={styles.container}>
-      <h2 style={styles.title}>Notre catalogue</h2>
+      <h1 style={styles.title}>Notre catalogue</h1>
       <p style={styles.paragraph}>Découvrez nos créations exclusives :</p>
       
       {/* Galerie d'images */}

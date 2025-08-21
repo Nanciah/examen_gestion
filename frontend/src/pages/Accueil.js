@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // navigation
+import { useNavigate } from 'react-router-dom';
 
 const styles = {
   page: {
@@ -47,16 +47,60 @@ const styles = {
   buttonHover: {
     backgroundColor: '#b01552',
   },
+  adminButton: {
+    padding: '14px 28px',
+    fontSize: '1.2rem',
+    fontWeight: '700',
+    color: '#fff',
+    backgroundColor: '#6a0dad',
+    border: 'none',
+    borderRadius: '12px',
+    cursor: 'pointer',
+    margin: '0 15px',
+    boxShadow: '0 6px 15px rgba(106, 13, 173, 0.6)',
+    transition: 'background-color 0.3s ease',
+  },
+  adminButtonHover: {
+    backgroundColor: '#4b0082',
+  },
+  clientButton: {
+    padding: '14px 28px',
+    fontSize: '1.2rem',
+    fontWeight: '700',
+    color: '#fff',
+    backgroundColor: '#1e90ff',
+    border: 'none',
+    borderRadius: '12px',
+    cursor: 'pointer',
+    margin: '0 15px',
+    boxShadow: '0 6px 15px rgba(30, 144, 255, 0.6)',
+    transition: 'background-color 0.3s ease',
+  },
+  clientButtonHover: {
+    backgroundColor: '#0066cc',
+  },
   buttonsWrapper: {
     display: 'flex',
     justifyContent: 'center',
     marginTop: '20px',
+  },
+  secondaryButtonsWrapper: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '30px',
+    paddingTop: '30px',
+    borderTop: '1px dashed rgba(216, 30, 105, 0.3)',
   }
 };
 
 const Accueil = () => {
   const navigate = useNavigate();
-  const [hovered, setHovered] = useState({ catalogue: false, rendezvous: false });
+  const [hovered, setHovered] = useState({ 
+    catalogue: false, 
+    rendezvous: false,
+    admin: false,
+    client: false
+  });
 
   return (
     <>
@@ -94,6 +138,33 @@ const Accueil = () => {
               onClick={() => navigate('/rendezvous')}
             >
               Prendre Rendez-vous
+            </button>
+          </div>
+
+          {/* Nouvelle section pour les espaces Admin/Client */}
+          <div style={styles.secondaryButtonsWrapper}>
+            <button
+              style={{
+                ...styles.adminButton,
+                ...(hovered.admin ? styles.adminButtonHover : {})
+              }}
+              onMouseEnter={() => setHovered(h => ({ ...h, admin: true }))}
+              onMouseLeave={() => setHovered(h => ({ ...h, admin: false }))}
+              onClick={() => navigate('/admin')}
+            >
+              Espace Admin
+            </button>
+
+            <button
+              style={{
+                ...styles.clientButton,
+                ...(hovered.client ? styles.clientButtonHover : {})
+              }}
+              onMouseEnter={() => setHovered(h => ({ ...h, client: true }))}
+              onMouseLeave={() => setHovered(h => ({ ...h, client: false }))}
+              onClick={() => navigate('/client')}
+            >
+              Espace Client
             </button>
           </div>
         </div>
